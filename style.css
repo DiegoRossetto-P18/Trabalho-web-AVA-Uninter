@@ -1,0 +1,195 @@
+/* REQUISITO 2: Organização do CSS e Variáveis */
+:root {
+    --azul-uninter: #003366;
+    --amarelo-uninter: #fcc419;
+    --branco: #ffffff;
+    --cor-suave: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cor-suave);
+    background-image: radial-gradient(#d1d1d1 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+}
+
+.navbar {
+    background: var(--azul-uninter);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid var(--amarelo-uninter);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.uninter-bold {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--branco);
+}
+
+.controle-thin {
+    font-weight: 200;
+    font-size: 0.9rem;
+    color: var(--amarelo-uninter);
+    margin-left: 5px;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { color: var(--branco); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.nav-links a:hover { color: var(--amarelo-uninter); }
+
+section {
+    scroll-margin-top: 110px;
+    background: var(--branco);
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)),
+                url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--branco);
+    text-align: center;
+}
+
+.hero h1 { font-size: 4rem; font-weight: 800; }
+.hero h2 { font-size: 1.8rem; font-weight: 400; color: var(--amarelo-uninter); }
+
+.sombra-separadora {
+    height: 30px;
+    box-shadow: 0px 15px 25px -5px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 5;
+    margin-top: -30px;
+}
+
+main {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#form-disciplina { display: flex; flex-direction: column; gap: 18px; }
+.campo { display: flex; flex-direction: column; gap: 5px; }
+label { font-weight: 600; color: var(--azul-uninter); font-size: 0.9rem; }
+input, select { padding: 12px; border: 1px solid #ddd; border-radius: 5px; outline: none; }
+
+#btn-salvar {
+    background: var(--amarelo-uninter);
+    color: var(--azul-uninter);
+    border: 2px solid var(--amarelo-uninter);
+    padding: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+
+#btn-salvar:hover {
+    background: var(--azul-uninter);
+    color: var(--amarelo-uninter);
+    border-color: var(--azul-uninter);
+}
+
+.item-disciplina {
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 6px solid var(--amarelo-uninter);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    transition: border-left-color 0.3s;
+}
+
+.item-disciplina:hover {
+    border-left-color: var(--azul-uninter);
+}
+
+.btn-editar, .btn-excluir {
+    padding: 8px 15px;
+    background: var(--branco);
+    color: var(--amarelo-uninter);
+    border: 2px solid var(--azul-uninter);
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: color 0.3s;
+}
+
+.btn-editar:hover, .btn-excluir:hover {
+    color: var(--azul-uninter);
+}
+
+#resumo-estudos {
+    background: var(--azul-uninter);
+    color: var(--amarelo-uninter);
+    padding: 15px;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.barra-preta {
+    background: #000;
+    color: #fff;
+    padding: 15px 5%;
+    font-size: 0.8rem;
+    margin-top: 50px;
+}
+
+.barra-progresso-bg {
+    background: #eee;
+    height: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.barra-progresso-fill {
+    background: var(--azul-uninter);
+    height: 100%;
+    transition: width 0.5s;
+}
+
+/* REQUISITO 3: Responsividade */
+@media (max-width: 600px) {
+    .navbar { flex-direction: column; padding: 10px; }
+    .nav-links { margin-top: 10px; gap: 15px; }
+    .item-disciplina { flex-direction: column; text-align: center; gap: 15px; }
+}
+
+/* Estilo para os números em branco no resumo azul */
+.numero-branco {
+    color: #ffffff !important; /* Força o branco sobre qualquer outra cor */
+    font-weight: 800;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Sombra leve para dar profundidade */
+}

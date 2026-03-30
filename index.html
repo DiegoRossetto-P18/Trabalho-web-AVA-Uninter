@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNINTER | Portal de Gestão</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="topo">
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="uninter-bold">UNINTER</span><span class="controle-thin">CONTROLE</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#topo">Início</a></li>
+            <li><a href="#secao-cadastro">Cadastro</a></li>
+            <li><a href="#secao-listagem">Ativos</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>UNINTER</h1>
+            <h2>Controle de Carga Horária</h2>
+            <p>Portal para gestão de disciplinas e horas de estudo</p>
+        </div>
+    </header>
+
+    <div class="sombra-separadora"></div>
+
+    <main>
+        <section id="secao-cadastro">
+            <div class="section-header">
+                <h2>Cadastrar Nova Disciplina</h2>
+            </div>
+            <form id="form-disciplina">
+                <div class="campo">
+                    <label>Nome da Disciplina</label>
+                    <input type="text" id="nome" placeholder="EX: Programação Web" required>
+                </div>
+                <div class="campo">
+                    <label>Professor Responsável</label>
+                    <input type="text" id="professor" placeholder="Nome" required>
+                </div>
+                <div class="campo">
+                    <label>Carga Horária Total</label>
+                    <input type="number" id="carga-horaria" min="1" placeholder="EX: 80" required>
+                </div>
+                <div class="campo">
+                    <label>Horas já Concluídas </label>
+                    <input type="number" id="horas-concluidas" min="0" placeholder="EX: 20" required>
+                </div>
+                <div class="campo">
+                    <label>Área do Conhecimento</label>
+                    <select id="area" required>
+                        <option value="">Selecione...</option>
+                        <option value="Tecnologia">Tecnologia</option>
+                        <option value="Exatas">Exatas</option>
+                        <option value="Humanas">Humanas</option>
+                        <option value="Biológicas">Biológicas</option>
+                    </select>
+                </div>
+                <button type="submit" id="btn-salvar">Adicionar Disciplina</button>
+            </form>
+        </section>
+
+        <section id="secao-listagem">
+            <div class="section-header">
+                <h2>Disciplinas Cadastradas</h2>
+                <input type="text" id="busca-nome" placeholder="Pesquisar disciplina..." oninput="atualizarSistema()" style="width: 100%; padding: 12px; margin: 15px 0; border: 1px solid #ddd; border-radius: 5px; outline: none;">
+            </div>
+            <div id="lista-disciplinas"></div>
+            
+            <div id="resumo-estudos">
+                Total de Horas Estudadas: <span id="total-horas">0</span>h
+            </div>
+        </section>
+    </main>
+
+    <footer class="barra-preta">
+        <p>Trabalho da faculdade      -      Fundamentos de Programação Web        -      Diego Rossetto Pereira RU:5338799 </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
